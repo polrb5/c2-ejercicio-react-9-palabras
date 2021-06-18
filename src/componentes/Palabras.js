@@ -8,8 +8,8 @@ export const Palabras = (props) => {
     setListaPalabras,
     copiaListadoPalabras,
     setCopiaListadoPalabras,
-    idMasAlta,
     idMasAltaResultado,
+    getLongitudMedia,
   } = props;
   return (
     <section className="palabras">
@@ -23,6 +23,7 @@ export const Palabras = (props) => {
             setCopiaListadoPalabras={setCopiaListadoPalabras}
             copiaListadoPalabras={copiaListadoPalabras}
             idMasAltaResultado={idMasAltaResultado}
+            getLongitudMedia={getLongitudMedia}
           />
         ))}
       </ul>
@@ -45,6 +46,5 @@ Palabras.propTypes = {
   copiaListadoPalabras: PropTypes.array.isRequired,
   setListaPalabras: PropTypes.func.isRequired,
   setCopiaListadoPalabras: PropTypes.func.isRequired,
-  idMasAlta: PropTypes.number.isRequired,
   idMasAltaResultado: PropTypes.number.isRequired,
 };
