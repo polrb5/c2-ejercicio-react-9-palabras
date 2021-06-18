@@ -15,9 +15,6 @@ export const ListaPalabras = (props) => {
   };
   return <li onClick={printPalabra}>{palabra.palabra}</li>;
 };
-{
-  /* <li data-lenguaje="si">Java</li>; */
-}
 
 ListaPalabras.propTypes = {
   palabra: PropTypes.shape({

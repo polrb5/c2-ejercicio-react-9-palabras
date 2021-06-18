@@ -8,6 +8,12 @@ export const CrearPalabras = (props) => {
   const [numVeces, setNumVeces] = useState(0);
   const crearPalabra = (e) => {
     e.preventDefault();
+    if (
+      nuevaPalabra.includes(" ") ||
+      listaPalabras.map((palabra) => palabra.palabra).includes(nuevaPalabra)
+    ) {
+      return;
+    }
     setListaPalabras(
       [
         ...listaPalabras,
