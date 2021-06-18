@@ -2,11 +2,18 @@ import PropTypes from "prop-types";
 
 export const Resultado = (props) => {
   const { palabra, setCopiaListadoPalabras, copiaListadoPalabras } = props;
+  const palabraMayusculua = palabra.id === 1;
   const clearPalabara = () =>
     setCopiaListadoPalabras(
       copiaListadoPalabras.filter((element) => element.id !== palabra.id)
     );
-  return <li onClick={clearPalabara}>{palabra.palabra}</li>;
+  return (
+    <li onClick={clearPalabara}>
+      {palabraMayusculua
+        ? palabra.palabra[0].toUpperCase() + palabra.palabra.slice(1)
+        : palabra.palabra}
+    </li>
+  );
 };
 
 Resultado.propTypes = {
