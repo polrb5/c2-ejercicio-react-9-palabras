@@ -26,6 +26,13 @@ function App() {
       lenguajeProgramacion: false,
       maximoVeces: "sin límite",
     },
+    {
+      id: 4,
+      palabra: "Java",
+      numeroCaracteres: 2,
+      lenguajeProgramacion: true,
+      maximoVeces: "sin límite",
+    },
   ]);
   const [copiaListadoPalabras, setCopiaListadoPalabras] = useState([]);
   const idMasAlta = listaPalabras

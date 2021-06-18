@@ -2,12 +2,19 @@ import PropTypes from "prop-types";
 
 export const Info = (props) => {
   const { copiaListadoPalabras } = props;
-  const nLenguajesProgramacion = copiaListadoPalabras.filter(
-    (palabra) => palabra.lenguajeProgramacion
-  ).length;
-  const palabraLenguaje = copiaListadoPalabras
+  const palabraLenguaje = JSON.stringify(
+    copiaListadoPalabras
+      .filter((palabra) => palabra.lenguajeProgramacion)
+      .map((palabra) => palabra.palabra)
+      .filter((lenguaje, i, lenguajes) => lenguajes.indexOf(lenguaje) === i)
+  );
+
+  const cantidadLenguajes = copiaListadoPalabras
     .filter((palabra) => palabra.lenguajeProgramacion)
-    .map((palabra) => <li key={palabra}>{palabra.palabra}</li>);
+    .map((palabra) => palabra.palabra)
+    .filter(
+      (lenguaje, i, lenguajes) => lenguajes.indexOf(lenguaje) === i
+    ).length;
 
   return (
     <section className="info">
@@ -40,8 +47,7 @@ export const Info = (props) => {
           </span>
         </li>
         <li>
-          Contiene <span>{nLenguajesProgramacion}</span> lenguaje/s de
-          programación
+          Contiene <span>{cantidadLenguajes}</span> lenguaje/s de programación
           <ul>{palabraLenguaje}</ul>
         </li>
       </ul>
