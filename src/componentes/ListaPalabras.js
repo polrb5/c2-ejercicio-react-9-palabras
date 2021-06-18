@@ -13,7 +13,14 @@ export const ListaPalabras = (props) => {
       { ...palabra, id: idMasAltaResultado + 1 },
     ]);
   };
-  return <li onClick={printPalabra}>{palabra.palabra}</li>;
+  return (
+    <li
+      data-lenguaje={palabra.lenguajeProgramacion ? "si" : ""}
+      onClick={printPalabra}
+    >
+      {palabra.palabra}
+    </li>
+  );
 };
 
 ListaPalabras.propTypes = {
