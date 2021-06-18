@@ -2,12 +2,11 @@ import PropTypes from "prop-types";
 
 export const Info = (props) => {
   const { copiaListadoPalabras } = props;
-  const palabraLenguaje = JSON.stringify(
-    copiaListadoPalabras
-      .filter((palabra) => palabra.lenguajeProgramacion)
-      .map((palabra) => palabra.palabra)
-      .filter((lenguaje, i, lenguajes) => lenguajes.indexOf(lenguaje) === i)
-  );
+  const palabraLenguaje = copiaListadoPalabras
+    .filter((palabra) => palabra.lenguajeProgramacion)
+    .map((palabra) => palabra.palabra)
+    .filter((lenguaje, i, lenguajes) => lenguajes.indexOf(lenguaje) === i)
+    .map((lenguaje) => <li key={lenguaje}>{lenguaje}</li>);
 
   const cantidadLenguajes = copiaListadoPalabras
     .filter((palabra) => palabra.lenguajeProgramacion)
