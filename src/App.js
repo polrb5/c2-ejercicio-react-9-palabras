@@ -27,8 +27,11 @@ function App() {
       maximoVeces: "sin límite",
     },
   ]);
-  const [displayPalabras, setDisplayPalabras] = useState([]);
+  const [copiaListadoPalabras, setCopiaListadoPalabras] = useState([]);
   const idMasAlta = listaPalabras
+    .map((palabra) => palabra.id)
+    .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 0);
+  const idMasAltaResultado = copiaListadoPalabras
     .map((palabra) => palabra.id)
     .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 0);
   return (
@@ -36,8 +39,10 @@ function App() {
       <Palabras
         listaPalabras={listaPalabras}
         setListaPalabras={setListaPalabras}
-        displayPalabras={displayPalabras}
-        setDisplayPalabras={setDisplayPalabras}
+        copiaListadoPalabras={copiaListadoPalabras}
+        setCopiaListadoPalabras={setCopiaListadoPalabras}
+        idMasAlta={idMasAlta}
+        idMasAltaResultado={idMasAltaResultado}
       />
       <CrearPalabras
         listaPalabras={listaPalabras}

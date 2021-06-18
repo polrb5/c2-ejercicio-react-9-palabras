@@ -1,9 +1,17 @@
 import PropTypes from "prop-types";
 
 export const ListaPalabras = (props) => {
-  const { palabra, setDisplayPalabras, displayPalabras } = props;
+  const {
+    palabra,
+    setCopiaListadoPalabras,
+    copiaListadoPalabras,
+    idMasAltaResultado,
+  } = props;
   const printPalabra = () => {
-    setDisplayPalabras([...displayPalabras, palabra]);
+    setCopiaListadoPalabras([
+      ...copiaListadoPalabras,
+      { ...palabra, id: idMasAltaResultado + 1 },
+    ]);
   };
   return <li onClick={printPalabra}>{palabra.palabra}</li>;
 };
@@ -19,6 +27,7 @@ ListaPalabras.propTypes = {
     lenguajeProgramacion: PropTypes.bool.isRequired,
     maximoVeces: PropTypes.string.isRequired,
   }).isRequired,
-  displayPalabras: PropTypes.array.isRequired,
-  setDisplayPalabras: PropTypes.func.isRequired,
+  copiaListadoPalabras: PropTypes.array.isRequired,
+  setCopiaListadoPalabras: PropTypes.func.isRequired,
+  idMasAltaResultado: PropTypes.number.isRequired,
 };

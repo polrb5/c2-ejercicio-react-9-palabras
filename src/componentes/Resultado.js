@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
 export const Resultado = (props) => {
-  const { palabra, setDisplayPalabras, displayPalabras } = props;
+  const { palabra, setCopiaListadoPalabras, copiaListadoPalabras } = props;
   const clearPalabara = () =>
-    setDisplayPalabras(
-      displayPalabras.filter((element) => element.id !== palabra.id)
+    setCopiaListadoPalabras(
+      copiaListadoPalabras.filter((element) => element.id !== palabra.id)
     );
   return <li onClick={clearPalabara}>{palabra.palabra}</li>;
 };
@@ -17,6 +17,6 @@ Resultado.propTypes = {
     lenguajeProgramacion: PropTypes.bool.isRequired,
     maximoVeces: PropTypes.string.isRequired,
   }).isRequired,
-  displayPalabras: PropTypes.array.isRequired,
-  setDisplayPalabras: PropTypes.func.isRequired,
+  copiaListadoPalabras: PropTypes.array.isRequired,
+  setCopiaListadoPalabras: PropTypes.func.isRequired,
 };

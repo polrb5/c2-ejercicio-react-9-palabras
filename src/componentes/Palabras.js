@@ -6,8 +6,10 @@ export const Palabras = (props) => {
   const {
     listaPalabras,
     setListaPalabras,
-    displayPalabras,
-    setDisplayPalabras,
+    copiaListadoPalabras,
+    setCopiaListadoPalabras,
+    idMasAlta,
+    idMasAltaResultado,
   } = props;
   return (
     <section className="palabras">
@@ -18,18 +20,19 @@ export const Palabras = (props) => {
             key={palabra.id}
             listaPalabras={listaPalabras}
             setListaPalabras={setListaPalabras}
-            setDisplayPalabras={setDisplayPalabras}
-            displayPalabras={displayPalabras}
+            setCopiaListadoPalabras={setCopiaListadoPalabras}
+            copiaListadoPalabras={copiaListadoPalabras}
+            idMasAltaResultado={idMasAltaResultado}
           />
         ))}
       </ul>
       <ul className="resultado">
-        {displayPalabras.map((palabra) => (
+        {copiaListadoPalabras.map((palabra) => (
           <Resultado
             palabra={palabra}
             key={palabra.id}
-            setDisplayPalabras={setDisplayPalabras}
-            displayPalabras={displayPalabras}
+            setcopiaListadoPalabras={setCopiaListadoPalabras}
+            copiaListadoPalabras={copiaListadoPalabras}
           />
         ))}
       </ul>
@@ -39,7 +42,9 @@ export const Palabras = (props) => {
 
 Palabras.propTypes = {
   listaPalabras: PropTypes.array.isRequired,
-  displayPalabras: PropTypes.array.isRequired,
+  copiaListadoPalabras: PropTypes.array.isRequired,
   setListaPalabras: PropTypes.func.isRequired,
-  setDisplayPalabras: PropTypes.func.isRequired,
+  setCopiaListadoPalabras: PropTypes.func.isRequired,
+  idMasAlta: PropTypes.number.isRequired,
+  idMasAltaResultado: PropTypes.number.isRequired,
 };
