@@ -49,7 +49,7 @@ function App() {
         setListaPalabras={setListaPalabras}
         idMasAlta={idMasAlta}
       />
-      <Info />
+      <Info copiaListadoPalabras={copiaListadoPalabras} />
     </>
   );
 }

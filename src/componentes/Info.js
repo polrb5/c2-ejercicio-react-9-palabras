@@ -1,15 +1,34 @@
-export const Info = () => {
+import PropTypes from "prop-types";
+
+export const Info = (props) => {
+  const { copiaListadoPalabras } = props;
   return (
     <section className="info">
       <ul>
         <li>
-          Nº de palabras <span>15</span>
+          Nº de palabras <span>{copiaListadoPalabras.length}</span>
         </li>
         <li>
-          Nº de caracteres <span>74</span>
+          Nº de caracteres{" "}
+          <span>
+            {copiaListadoPalabras.reduce(
+              (acumulador, { numeroCaracteres }) =>
+                acumulador + numeroCaracteres,
+              0
+            )}
+          </span>
         </li>
         <li>
-          Longitud media <span>5.32</span>
+          Longitud media{" "}
+          <span>
+            {(
+              copiaListadoPalabras.reduce(
+                (acumulador, { numeroCaracteres }) =>
+                  acumulador + numeroCaracteres,
+                0
+              ) / copiaListadoPalabras.length
+            ).toFixed(2)}
+          </span>
         </li>
         <li>
           Contiene 2 lenguaje/s de programación
@@ -21,4 +40,8 @@ export const Info = () => {
       </ul>
     </section>
   );
+};
+
+Info.propTypes = {
+  copiaListadoPalabras: PropTypes.array.isRequired,
 };
