@@ -31,7 +31,7 @@ export const Palabras = (props) => {
           <Resultado
             palabra={palabra}
             key={palabra.id}
-            setcopiaListadoPalabras={setCopiaListadoPalabras}
+            setCopiaListadoPalabras={setCopiaListadoPalabras}
             copiaListadoPalabras={copiaListadoPalabras}
           />
         ))}
