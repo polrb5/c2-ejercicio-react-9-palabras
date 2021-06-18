@@ -6,6 +6,7 @@ export const Info = (props) => {
     .filter((palabra) => palabra.lenguajeProgramacion)
     .map((palabra) => palabra.palabra)
     .filter((lenguaje, i, lenguajes) => lenguajes.indexOf(lenguaje) === i)
+    .sort()
     .map((lenguaje) => <li key={lenguaje}>{lenguaje}</li>);
 
   const cantidadLenguajes = copiaListadoPalabras
