@@ -5,6 +5,10 @@ export const Info = (props) => {
   const nLenguajesProgramacion = copiaListadoPalabras.filter(
     (palabra) => palabra.lenguajeProgramacion
   ).length;
+  const palabraLenguaje = copiaListadoPalabras
+    .filter((palabra) => palabra.lenguajeProgramacion)
+    .map((palabra) => <li key={palabra}>{palabra.palabra}</li>);
+
   return (
     <section className="info">
       <ul>
@@ -38,13 +42,7 @@ export const Info = (props) => {
         <li>
           Contiene <span>{nLenguajesProgramacion}</span> lenguaje/s de
           programación
-          <ul>
-            {copiaListadoPalabras
-              .filter((palabra) => palabra.lenguajeProgramacion)
-              .map((palabra) => (
-                <li>{palabra.palabra}</li>
-              ))}
-          </ul>
+          <ul>{palabraLenguaje}</ul>
         </li>
       </ul>
     </section>
