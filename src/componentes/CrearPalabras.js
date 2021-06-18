@@ -6,16 +6,19 @@ export const CrearPalabras = (props) => {
   const [nuevaPalabra, setNuevaPalabra] = useState("");
   const crearPalabra = (e) => {
     e.preventDefault();
-    setListaPalabras([
-      ...listaPalabras,
-      {
-        id: idMasAlta + 1,
-        palabra: nuevaPalabra,
-        numeroCaracteres: nuevaPalabra.length,
-        lenguajeProgramacion: false,
-        maximoVeces: "sin límite",
-      },
-    ]);
+    setListaPalabras(
+      [
+        ...listaPalabras,
+        {
+          id: idMasAlta + 1,
+          palabra: nuevaPalabra,
+          numeroCaracteres: nuevaPalabra.length,
+          lenguajeProgramacion: false,
+          maximoVeces: "sin límite",
+        },
+      ],
+      e.target.value
+    );
   };
   return (
     <section className="crear-palabras">
@@ -25,6 +28,7 @@ export const CrearPalabras = (props) => {
             type="text"
             placeholder="Nueva palabra"
             onChange={(e) => setNuevaPalabra(e.target.value)}
+            value={nuevaPalabra}
             required
           />
         </div>
@@ -42,7 +46,9 @@ export const CrearPalabras = (props) => {
           <input type="checkbox" />
         </div>
         <div className="form-grupo">
-          <button type="submit">Crear</button>
+          <button type="submit" disabled={!nuevaPalabra}>
+            Crear
+          </button>
         </div>
       </form>
     </section>
