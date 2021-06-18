@@ -21,13 +21,15 @@ export const Info = (props) => {
         <li>
           Longitud media{" "}
           <span>
-            {(
-              copiaListadoPalabras.reduce(
-                (acumulador, { numeroCaracteres }) =>
-                  acumulador + numeroCaracteres,
-                0
-              ) / copiaListadoPalabras.length
-            ).toFixed(2)}
+            {copiaListadoPalabras.length === 0
+              ? "0"
+              : (
+                  copiaListadoPalabras.reduce(
+                    (acumulador, { numeroCaracteres }) =>
+                      acumulador + numeroCaracteres,
+                    0
+                  ) / copiaListadoPalabras.length
+                ).toFixed(2)}
           </span>
         </li>
         <li>
