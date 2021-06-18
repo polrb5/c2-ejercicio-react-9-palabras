@@ -4,6 +4,8 @@ import { useState } from "react";
 export const CrearPalabras = (props) => {
   const { listaPalabras, setListaPalabras, idMasAlta } = props;
   const [nuevaPalabra, setNuevaPalabra] = useState("");
+  const [esLenguaje, setEslenguaje] = useState(false);
+  const [numVeces, setNumVeces] = useState(0);
   const crearPalabra = (e) => {
     e.preventDefault();
     setListaPalabras(
@@ -13,8 +15,8 @@ export const CrearPalabras = (props) => {
           id: idMasAlta + 1,
           palabra: nuevaPalabra,
           numeroCaracteres: nuevaPalabra.length,
-          lenguajeProgramacion: false,
-          maximoVeces: "sin límite",
+          lenguajeProgramacion: esLenguaje,
+          maximoVeces: numVeces,
         },
       ],
       e.target.value
@@ -33,7 +35,7 @@ export const CrearPalabras = (props) => {
           />
         </div>
         <div className="form-grupo">
-          <select required>
+          <select onChange={(e) => setNumVeces(e.target.value)} required>
             <option value="">Máximo de veces</option>
             <option value="0">Sin límite</option>
             <option value="1">1 vez</option>
@@ -43,7 +45,11 @@ export const CrearPalabras = (props) => {
         </div>
         <div className="form-grupo">
           <label> Es un lenguaje de programación</label>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            value={esLenguaje}
+            onChange={(e) => setEslenguaje(e.target.checked)}
+          />
         </div>
         <div className="form-grupo">
           <button type="submit" disabled={!nuevaPalabra}>
