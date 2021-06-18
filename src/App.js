@@ -5,30 +5,27 @@ import { Palabras } from "./componentes/Palabras";
 
 function App() {
   const [listaPalabras, setListaPalabras] = useState([
-    "me",
-    "Javascript",
-    "el",
-    "la",
-    "gusta",
-    "odio",
-    "no",
-    "muy",
-    "y",
-    "Java",
-    "mucho",
-    "de",
-    "poco",
-    "programador",
-    "amigo",
-    "programadora",
-    "amiga",
-    "soy",
-    "también",
-    "pero",
-    "gustan",
-    "gatos",
-    "los",
-    "perros",
+    {
+      id: 1,
+      palabra: "me",
+      numeroCaracteres: 2,
+      lenguajeProgramacion: false,
+      maximoVeces: "sin límite",
+    },
+    {
+      id: 2,
+      palabra: "JavaScript",
+      numeroCaracteres: 10,
+      lenguajeProgramacion: false,
+      maximoVeces: "sin límite",
+    },
+    {
+      id: 3,
+      palabra: "el",
+      numeroCaracteres: 2,
+      lenguajeProgramacion: false,
+      maximoVeces: "sin límite",
+    },
   ]);
   return (
     <>
