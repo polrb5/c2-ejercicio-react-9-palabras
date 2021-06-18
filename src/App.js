@@ -16,7 +16,7 @@ function App() {
       id: 2,
       palabra: "JavaScript",
       numeroCaracteres: 10,
-      lenguajeProgramacion: false,
+      lenguajeProgramacion: true,
       maximoVeces: "sin límite",
     },
     {
@@ -34,6 +34,7 @@ function App() {
   const idMasAltaResultado = copiaListadoPalabras
     .map((palabra) => palabra.id)
     .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 0);
+
   return (
     <>
       <Palabras
