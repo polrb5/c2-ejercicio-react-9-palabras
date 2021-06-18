@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { ListaPalabras } from "./ListaPalabras";
 import { Resultado } from "./Resultado";
 
@@ -24,9 +25,21 @@ export const Palabras = (props) => {
       </ul>
       <ul className="resultado">
         {displayPalabras.map((palabra) => (
-          <Resultado palabra={palabra} key={palabra.id} />
+          <Resultado
+            palabra={palabra}
+            key={palabra.id}
+            setDisplayPalabras={setDisplayPalabras}
+            displayPalabras={displayPalabras}
+          />
         ))}
       </ul>
     </section>
   );
+};
+
+Palabras.propTypes = {
+  listaPalabras: PropTypes.array.isRequired,
+  displayPalabras: PropTypes.array.isRequired,
+  setListaPalabras: PropTypes.func.isRequired,
+  setDisplayPalabras: PropTypes.func.isRequired,
 };
