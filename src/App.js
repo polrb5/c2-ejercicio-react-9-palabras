@@ -27,11 +27,15 @@ function App() {
       maximoVeces: "sin límite",
     },
   ]);
+  const [displayPalabras, setDisplayPalabras] = useState([]);
+
   return (
     <>
       <Palabras
         listaPalabras={listaPalabras}
         setListaPalabras={setListaPalabras}
+        displayPalabras={displayPalabras}
+        setDisplayPalabras={setDisplayPalabras}
       />
       <CrearPalabras />
       <Info />

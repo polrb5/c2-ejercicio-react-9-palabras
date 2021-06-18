@@ -1,6 +1,9 @@
 export const ListaPalabras = (props) => {
-  const { palabra } = props;
-  return <li>{palabra.palabra}</li>;
+  const { palabra, setDisplayPalabras, displayPalabras } = props;
+  const printPalabra = () => {
+    setDisplayPalabras([...displayPalabras, palabra]);
+  };
+  return <li onClick={printPalabra}>{palabra.palabra}</li>;
 };
 
 {
