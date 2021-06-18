@@ -10,7 +10,7 @@ export const Palabras = (props) => {
         {listaPalabras.map((palabra) => (
           <ListaPalabras
             palabra={palabra}
-            key={palabra}
+            key={palabra.id}
             listaPalabras={listaPalabras}
             setListaPalabras={setListaPalabras}
           />
