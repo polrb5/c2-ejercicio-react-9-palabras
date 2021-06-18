@@ -28,7 +28,9 @@ function App() {
     },
   ]);
   const [displayPalabras, setDisplayPalabras] = useState([]);
-
+  const idMasAlta = listaPalabras
+    .map((palabra) => palabra.id)
+    .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 0);
   return (
     <>
       <Palabras
@@ -37,7 +39,11 @@ function App() {
         displayPalabras={displayPalabras}
         setDisplayPalabras={setDisplayPalabras}
       />
-      <CrearPalabras />
+      <CrearPalabras
+        listaPalabras={listaPalabras}
+        setListaPalabras={setListaPalabras}
+        idMasAlta={idMasAlta}
+      />
       <Info />
     </>
   );
