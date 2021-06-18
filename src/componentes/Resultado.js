@@ -22,7 +22,7 @@ Resultado.propTypes = {
     id: PropTypes.number.isRequired,
     numeroCaracteres: PropTypes.number.isRequired,
     lenguajeProgramacion: PropTypes.bool.isRequired,
-    maximoVeces: PropTypes.string.isRequired,
+    maximoVeces: PropTypes.number.isRequired,
   }).isRequired,
   copiaListadoPalabras: PropTypes.array.isRequired,
   setCopiaListadoPalabras: PropTypes.func.isRequired,

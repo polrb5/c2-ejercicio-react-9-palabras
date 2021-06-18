@@ -6,8 +6,17 @@ export const ListaPalabras = (props) => {
     setCopiaListadoPalabras,
     copiaListadoPalabras,
     idMasAltaResultado,
+    listaPalabras,
+    setListaPalabras,
   } = props;
   const printPalabra = () => {
+    palabra.maximoVeces = parseInt(palabra.maximoVeces) - 1;
+    if (palabra.maximoVeces === 0) {
+      setListaPalabras(
+        listaPalabras.filter((element) => element.id !== palabra.id)
+      );
+    }
+
     setCopiaListadoPalabras([
       ...copiaListadoPalabras,
       { ...palabra, id: idMasAltaResultado + 1 },
@@ -29,9 +38,10 @@ ListaPalabras.propTypes = {
     id: PropTypes.number.isRequired,
     numeroCaracteres: PropTypes.number.isRequired,
     lenguajeProgramacion: PropTypes.bool.isRequired,
-    maximoVeces: PropTypes.string.isRequired,
   }).isRequired,
   copiaListadoPalabras: PropTypes.array.isRequired,
   setCopiaListadoPalabras: PropTypes.func.isRequired,
   idMasAltaResultado: PropTypes.number.isRequired,
+  listaPalabras: PropTypes.array.isRequired,
+  setListaPalabras: PropTypes.func.isRequired,
 };
